@@ -1,0 +1,253 @@
+.social-proof {
+  padding: 48px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.social-proof__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.social-proof__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card__icon {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.stat-card__number {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-card__label {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.social-proof__badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.trust-badge {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateX(3px);
+}
+
+.trust-badge__icon {
+  font-size: 32px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff6b6b20 0%, #ffd93d20 100%);
+  border-radius: 12px;
+}
+
+.trust-badge__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.trust-badge__title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #1a1a1a;
+}
+
+.trust-badge__description {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* Mobile Optimization */
+@media (max-width: 767px) {
+  .social-proof {
+    padding: 32px 16px;
+  }
+
+  .social-proof__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    padding: 20px 12px;
+    border-radius: 12px;
+  }
+
+  .stat-card__icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .stat-card__number {
+    font-size: 24px;
+  }
+
+  .stat-card__label {
+    font-size: 12px;
+  }
+
+  .social-proof__badges {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .trust-badge {
+    padding: 14px 12px;
+    border-radius: 10px;
+    gap: 10px;
+  }
+
+  .trust-badge__icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .trust-badge__title {
+    font-size: 13px;
+  }
+
+  .trust-badge__description {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-proof {
+    padding: 24px 12px;
+  }
+
+  .stat-card {
+    padding: 16px 10px;
+  }
+
+  .stat-card__icon {
+    font-size: 28px;
+  }
+
+  .stat-card__number {
+    font-size: 20px;
+  }
+
+  .stat-card__label {
+    font-size: 11px;
+  }
+
+  .trust-badge {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .trust-badge__icon {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .trust-badge__title {
+    font-size: 12px;
+  }
+
+  .trust-badge__description {
+    font-size: 10px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .social-proof__stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .social-proof__badges {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stat-card {
+    padding: 24px 16px;
+  }
+
+  .stat-card__icon {
+    font-size: 36px;
+  }
+
+  .stat-card__number {
+    font-size: 28px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .social-proof {
+    padding: 60px 32px;
+  }
+
+  .social-proof__stats {
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+
+  .stat-card {
+    padding: 32px 24px;
+  }
+
+  .social-proof__badges {
+    gap: 24px;
+  }
+
+  .trust-badge {
+    padding: 24px;
+  }
+}

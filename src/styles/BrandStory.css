@@ -1,0 +1,248 @@
+.brand-story {
+  background: white;
+  padding: 40px 0;
+}
+
+.brand-story__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Image Section */
+.brand-story__image {
+  width: 100%;
+}
+
+.brand-story__image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, 
+    var(--maroon-dark) 0%, 
+    var(--maroon) 50%, 
+    var(--maroon-light) 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(90, 15, 31, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-story__image-placeholder::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(217, 183, 122, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.brand-story__ornament {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-family: var(--font-heading);
+}
+
+.brand-story__ornament span:first-child,
+.brand-story__ornament span:last-child {
+  font-size: 24px;
+  animation: rotate 6s linear infinite;
+}
+
+.brand-story__ornament span:nth-child(2) {
+  font-size: 32px;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
+
+/* Text Section */
+.brand-story__text {
+  width: 100%;
+}
+
+.brand-story__label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.brand-story__title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--maroon);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.brand-story__description {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.brand-story__description p {
+  margin-bottom: 12px;
+}
+
+.brand-story__description strong {
+  color: var(--maroon);
+  font-weight: 600;
+}
+
+/* Stats */
+.brand-story__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.brand-story__stat {
+  text-align: center;
+  padding: 14px 8px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(185, 138, 74, 0.2);
+}
+
+.brand-story__stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--maroon);
+  margin-bottom: 3px;
+  line-height: 1;
+}
+
+.brand-story__stat-label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  color: #6b5a52;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* Mobile Large */
+@media (min-width: 480px) {
+  .brand-story {
+    padding: 48px 0;
+  }
+
+  .brand-story__content {
+    gap: 36px;
+  }
+
+  .brand-story__title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .brand-story__description {
+    font-size: 14px;
+  }
+
+  .brand-story__stat {
+    padding: 16px 10px;
+  }
+
+  .brand-story__stat-number {
+    font-size: 24px;
+  }
+
+  .brand-story__stat-label {
+    font-size: 10px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .brand-story {
+    padding: 72px 0;
+  }
+
+  .brand-story__content {
+    flex-direction: row;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .brand-story__image {
+    width: 45%;
+    flex-shrink: 0;
+  }
+
+  .brand-story__text {
+    width: 55%;
+  }
+
+  .brand-story__title {
+    font-size: 36px;
+  }
+
+  .brand-story__description {
+    font-size: 15px;
+  }
+
+  .brand-story__stats {
+    gap: 24px;
+  }
+
+  .brand-story__stat {
+    padding: 24px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .brand-story {
+    padding: 88px 0;
+  }
+
+  .brand-story__content {
+    gap: 80px;
+  }
+
+  .brand-story__title {
+    font-size: 40px;
+  }
+
+  .brand-story__description {
+    font-size: 16px;
+  }
+
+  .brand-story__stat-number {
+    font-size: 36px;
+  }
+
+  .brand-story__stat-label {
+    font-size: 12px;
+  }
+}

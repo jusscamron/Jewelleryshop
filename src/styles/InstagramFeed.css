@@ -1,0 +1,96 @@
+.insta {
+  background: var(--cream);
+  padding: 40px 0 48px;
+}
+
+/* Mobile: 3 columns x 2 rows */
+.insta__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.insta__tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16; /* Changed from 1/1 to 9/16 for vertical video (Instagram Reels ratio) */
+  overflow: hidden;
+}
+
+.insta__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--maroon);
+  transition: transform 0.5s ease;
+}
+
+/* Video specific styling */
+video.insta__img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* placeholder tints until real photos are added */
+.insta__img--gold-red   { background-image: linear-gradient(150deg, #b98a4a 0%, #7a1a2e 100%); }
+.insta__img--sand       { background-image: linear-gradient(150deg, #d9b77a 0%, #b98a4a 100%); }
+.insta__img--maroon     { background-image: radial-gradient(circle at 40% 35%, #8a2a3c 0%, #3f0914 100%); }
+.insta__img--saree      { background-image: linear-gradient(150deg, #a8453f 0%, #5a0f1f 100%); }
+.insta__img--gold-cream { background-image: linear-gradient(150deg, #e6c993 0%, #8a2a3c 100%); }
+.insta__img--sand-light { background-image: linear-gradient(150deg, #ecd5a6 0%, #c9a06a 100%); }
+
+.insta__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(63, 9, 20, 0.5);
+  color: var(--cream);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.insta__tile:hover .insta__img,
+.insta__tile:focus-visible .insta__img {
+  transform: scale(1.07);
+}
+
+.insta__tile:hover .insta__overlay,
+.insta__tile:focus-visible .insta__overlay {
+  opacity: 1;
+}
+
+.insta__cta {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.insta__cta .btn {
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 768px) {
+  .insta {
+    padding: 56px 0 64px;
+  }
+
+  .insta__grid {
+    gap: 12px;
+  }
+}
+
+/* ---------- Desktop: 6 in a row ---------- */
+@media (min-width: 1024px) {
+  .insta__grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+
+  .insta__cta {
+    margin-top: 36px;
+  }
+}

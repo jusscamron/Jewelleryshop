@@ -1,0 +1,198 @@
+.categories {
+  background: var(--cream);
+  padding: 32px 0 28px;
+  position: relative;
+}
+
+/* Mobile: Horizontal scrolling in one line */
+.categories__grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  padding: 0 var(--gutter) 12px;
+  margin: 0 calc(-1 * var(--gutter));
+  scroll-behavior: smooth;
+  transition: scroll-behavior 0.3s ease;
+}
+
+/* Hide scrollbar */
+.categories__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  min-width: 110px;
+}
+
+/* ---------- Circle ---------- */
+.cat__ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 4px;
+  background: var(--cream);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 4px 12px rgba(90, 15, 31, 0.08);
+}
+
+.cat__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--maroon);
+}
+
+/* Default gradient for items without images */
+.cat__img:not([style*="background-image"]) {
+  background-image: radial-gradient(circle at 35% 30%, #8a2a3c 0%, #5a0f1f 60%, #3f0914 100%);
+}
+
+/* placeholder tints until real photos are added */
+.cat__img:not([style*="background-image"])   {
+   background-image: radial-gradient(circle at 35% 30%, #c9a06a 0%, #7a1a2e 55%, #3f0914 100%); }
+.cat__img--jhumka:not([style*="background-image"])   { background-image: radial-gradient(circle at 35% 30%, #d9b77a 0%, #5a0f1f 60%, #3f0914 100%); }
+.cat__img--necklace:not([style*="background-image"]) { background-image: radial-gradient(circle at 35% 30%, #b98a4a 0%, #5a0f1f 60%, #3f0914 100%); }
+.cat__img--autres:not([style*="background-image"])   { background-image: radial-gradient(circle at 35% 30%, #e6c993 0%, #7a1a2e 60%, #3f0914 100%); }
+
+.cat:active .cat__ring {
+  transform: scale(0.95);
+}
+
+/* ---------- Text ---------- */
+.cat__label {
+  margin-top: 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--maroon-dark);
+}
+
+.cat__link {
+  margin-top: 4px;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: #6b5a52;
+  white-space: nowrap;
+}
+
+.cat__arrow {
+  display: inline-block;
+  transition: transform 0.25s;
+}
+
+.cat:hover .cat__arrow {
+  transform: translateX(4px);
+}
+
+/* Scroll indicator hint */
+.categories::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 12px;
+  width: 40px;
+  background: linear-gradient(to left, var(--cream), transparent);
+  pointer-events: none;
+}
+
+/* ---------- Mobile Large ---------- */
+@media (min-width: 480px) {
+  .categories {
+    padding: 36px 0 32px;
+  }
+  
+  .cat {
+    min-width: 120px;
+  }
+  
+  .cat__ring {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .cat__label {
+    font-size: 12px;
+  }
+  
+  .cat__link {
+    font-size: 10px;
+  }
+}
+
+/* ---------- Tablet: Grid layout ---------- */
+@media (min-width: 768px) {
+  .categories {
+    padding: 56px 0 40px;
+  }
+
+  .categories::after {
+    display: none;
+  }
+
+  .categories__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cat {
+    min-width: auto;
+  }
+
+  .cat__ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .cat:hover .cat__ring {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(90, 15, 31, 0.18);
+  }
+
+  .cat__label {
+    font-size: 13px;
+    margin-top: 18px;
+  }
+
+  .cat__link {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 1024px) {
+  .categories {
+    padding: 64px 0 48px;
+  }
+
+  .cat__ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  .cat__label {
+    font-size: 14px;
+  }
+}

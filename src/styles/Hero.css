@@ -1,0 +1,573 @@
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- Background image / placeholder ---------- */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: 70% center;
+  background-repeat: no-repeat;
+  background-color: var(--maroon-light);
+  /* Hide background images on mobile */
+  display: none;
+  transition: opacity 0.5s ease, transform 6s ease-in-out;
+  transform: scale(1);
+}
+
+.hero__media--transitioning {
+  opacity: 0.7;
+}
+
+.hero__media--2 {
+  background-image: linear-gradient(135deg, #7a5a1e 0%, #5a0f1f 60%, #3f0914 100%);
+}
+
+.hero__media--3 {
+  background-image: linear-gradient(135deg, #b98a4a 0%, #5a0f1f 60%, #3f0914 100%);
+}
+
+/* Subtle zoom animation */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* Enhanced cream veil gradient */
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--cream) 0%,
+    rgba(250, 243, 232, 0.95) 35%,
+    rgba(250, 243, 232, 0.4) 70%,
+    rgba(250, 243, 232, 0) 100%
+  );
+}
+
+/* Decorative ornament */
+.hero__ornament {
+  display: none;
+}
+
+/* Mobile decorative pattern */
+.hero__decorative-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--gold) 0%, 
+    var(--maroon) 25%, 
+    var(--gold) 50%, 
+    var(--maroon) 75%, 
+    var(--gold) 100%);
+  z-index: 3;
+  animation: shimmer 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.hero__decorative-corners {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--gold);
+  border-left: 2px solid var(--gold);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.hero__decorative-corners::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  border-bottom: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+}
+
+/* Mobile-specific style improvements */
+@media (max-width: 767px) {
+  .hero {
+    box-shadow: inset 0 -60px 60px -40px rgba(185, 138, 74, 0.1);
+  }
+}
+
+/* ---------- Content ---------- */
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__content {
+  max-width: 100%;
+  padding: 0;
+  text-align: center;
+  animation: heroSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero__content--exit {
+  animation: heroSlideOut 0.3s ease both;
+}
+
+/* Exclusive badge */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(138, 42, 60, 0.08);
+  border: 1.5px solid var(--gold);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  animation: badgeFadeIn 0.6s ease both;
+  box-shadow: 0 2px 8px rgba(185, 138, 74, 0.15);
+}
+
+.hero__badge-icon {
+  color: var(--gold);
+  font-size: 12px;
+  animation: rotate 3s linear infinite;
+}
+
+.hero__badge-text {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  font-weight: 600;
+}
+
+/* Title styling */
+.hero__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  margin-bottom: 16px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.hero__title-line {
+  display: block;
+  animation: titleSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: center;
+}
+
+.hero__title-accent {
+  display: block;
+  color: var(--gold);
+  font-size: 0.8em;
+  margin-top: 6px;
+  animation: titleSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  font-weight: 500;
+}
+
+/* Tags styling */
+.hero__tags {
+  margin: 0 0 28px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 0;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.hero__tag-item {
+  display: inline-block;
+  animation: tagFadeIn 0.5s ease both;
+  transition: opacity 0.3s;
+}
+
+.hero__tag-item:hover {
+  opacity: 1;
+}
+
+.hero__tag-separator {
+  font-style: normal;
+  color: var(--gold);
+  margin: 0 6px;
+}
+
+/* CTA Button */
+.hero__cta {
+  animation: ctaFadeIn 0.6s ease both;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(138, 42, 60, 0.2);
+  font-size: 10px;
+}
+
+.hero__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(138, 42, 60, 0.3);
+}
+
+.hero__btn:active {
+  transform: translateY(0);
+}
+
+.hero__btn-arrow {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.hero__btn:hover .hero__btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Dots ---------- */
+.hero__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 2px solid var(--maroon);
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  min-width: 10px;
+  min-height: 20px;
+}
+
+.dot:hover {
+  border-color: var(--gold);
+  transform: scale(1.2);
+}
+
+.dot--active {
+  background: var(--maroon);
+  border-color: var(--gold);
+  width: 24px;
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+/* ---------- Animations ---------- */
+@keyframes heroSlideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) translateX(-10px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes heroSlideOut {
+  from { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  to { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes titleSlideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes badgeFadeIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+}
+
+@keyframes tagFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateX(-10px);
+  }
+  to { 
+    opacity: 0.9; 
+    transform: translateX(0);
+  }
+}
+
+@keyframes ctaFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(217, 183, 122, 0.7);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px rgba(217, 183, 122, 0);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Mobile Large ---------- */
+@media (min-width: 480px) {
+  .hero {
+    min-height: 520px;
+  }
+
+  .hero__title {
+    font-size: 36px;
+  }
+
+  .hero__tags {
+    font-size: 11px;
+  }
+
+  .hero__btn {
+    font-size: 11px;
+    padding: 14px 32px;
+  }
+
+  .hero__decorative-corners {
+    top: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 768px) {
+  .hero {
+    min-height: 650px;
+    background: var(--cream);
+    box-shadow: none;
+  }
+
+  /* Hide mobile decorative elements */
+  .hero__decorative-top,
+  .hero__decorative-corners {
+    display: none;
+  }
+
+  /* Show background images on tablet and up */
+  .hero__media {
+    display: block;
+    background-image: linear-gradient(135deg, #8a2a3c 0%, #5a0f1f 55%, #3f0914 100%);
+    background-position: 75% center;
+    animation: kenBurns 12s ease-in-out infinite alternate;
+  }
+
+  /* Enhanced tablet veil */
+  .hero__media::after {
+    background: linear-gradient(
+      to right,
+      var(--cream) 0%,
+      rgba(250, 243, 232, 0.96) 30%,
+      rgba(250, 243, 232, 0.5) 60%,
+      rgba(250, 243, 232, 0) 85%
+    );
+  }
+
+  .hero__inner {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    justify-content: flex-start;
+  }
+
+  .hero__content {
+    max-width: 560px;
+    text-align: left;
+  }
+
+  .hero__title {
+    font-size: 44px;
+  }
+
+  .hero__badge {
+    padding: 10px 20px;
+  }
+
+  .hero__badge-text {
+    font-size: 10px;
+  }
+
+  .hero__tags {
+    justify-content: flex-start;
+    font-size: 12px;
+  }
+
+  .hero__title-line,
+  .hero__title-accent {
+    transform-origin: left center;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dot--active {
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  /* .hero__dots {
+    bottom: 32px;
+    gap: 12px;
+  } */
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero__media::after {
+    background: linear-gradient(
+      to right,
+      var(--cream) 0%,
+      rgba(250, 243, 232, 0.97) 25%,
+      rgba(250, 243, 232, 0.4) 55%,
+      rgba(250, 243, 232, 0) 80%
+    );
+  }
+
+  .hero__inner {
+    padding-left: 140px; /* Increased to avoid ornament overlap */
+    padding-right: 40px;
+  }
+
+  .hero__content {
+    max-width: 600px;
+  }
+
+  .hero__title {
+    font-size: 52px;
+  }
+
+  .hero__tags {
+    font-size: 12px;
+    margin-bottom: 40px;
+  }
+
+  /* Enhanced ornament with animation */
+  .hero__ornament {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    z-index: 2;
+    background: var(--maroon);
+    border-right: 2px solid var(--gold);
+    opacity: 0.96;
+    overflow: hidden;
+  }
+
+  .hero__ornament-pattern {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0 36px,
+      var(--gold) 36px 38px,
+      transparent 38px 72px
+    );
+    animation: patternSlide 20s linear infinite;
+  }
+
+  @keyframes patternSlide {
+    from { transform: translateY(-72px); }
+    to { transform: translateY(0); }
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero__title {
+    font-size: 58px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    min-height: 750px;
+  }
+
+  .hero__inner {
+    padding-left: 160px;
+  }
+
+  .hero__title {
+    font-size: 64px;
+  }
+}

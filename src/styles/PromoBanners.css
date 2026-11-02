@@ -1,0 +1,162 @@
+.promos {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.promo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 260px;
+  padding: 32px var(--gutter);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--maroon);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+/* placeholder gradients until real photos are added */
+.promo--sarees {
+  background-image: linear-gradient(135deg, #6e1424 0%, #5a0f1f 55%, #3f0914 100%);
+}
+
+.promo--bijoux {
+  background-image: linear-gradient(135deg, #4a0b17 0%, #3f0914 55%, #2b060e 100%);
+}
+
+/* dark veil on the text side so copy stays readable over photos */
+.promo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(63, 9, 20, 0.88) 0%, rgba(63, 9, 20, 0.45) 65%, rgba(63, 9, 20, 0) 100%);
+}
+
+.promo__content {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+}
+
+.promo__kicker {
+  font-family: var(--font-heading);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.promo__title {
+  margin-top: 4px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.promo__text {
+  margin: 2px 0 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(250, 243, 232, 0.88);
+  max-width: 280px;
+}
+
+.btn--gold {
+  background: var(--gold);
+  color: var(--maroon-dark);
+  padding: 11px 24px;
+  transition: all 0.3s ease;
+  font-size: 10px;
+}
+
+.btn--gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(185, 138, 74, 0.4);
+}
+
+.btn--gold:active {
+  transform: translateY(0);
+}
+
+/* ---------- Mobile Large ---------- */
+@media (min-width: 480px) {
+  .promo {
+    min-height: 280px;
+    padding: 36px var(--gutter);
+  }
+  
+  .promo__kicker {
+    font-size: 13px;
+  }
+  
+  .promo__title {
+    font-size: 32px;
+  }
+  
+  .promo__text {
+    font-size: 13px;
+  }
+}
+
+/* ---------- Tablet: side by side ---------- */
+@media (min-width: 768px) {
+  .promos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .promo {
+    min-height: 300px;
+    padding: 40px 32px;
+  }
+
+  .promo--bijoux {
+    border-left: 1px solid rgba(217, 183, 122, 0.35);
+  }
+
+  .promo__content {
+    max-width: 260px;
+  }
+
+  .promo__kicker {
+    font-size: 14px;
+  }
+
+  .promo__title {
+    font-size: 34px;
+    margin-top: 2px;
+  }
+
+  .promo__text {
+    margin: 14px 0 20px;
+  }
+
+  .btn--gold {
+    padding: 11px 26px;
+    font-size: 11px;
+  }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 1024px) {
+  .promo {
+    min-height: 320px;
+    padding: 48px 64px;
+  }
+
+  .promo__content {
+    max-width: 300px;
+  }
+
+  .promo__title {
+    font-size: 40px;
+  }
+
+  .promo__text {
+    font-size: 14px;
+  }
+}

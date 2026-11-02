@@ -1,0 +1,160 @@
+.features {
+  background: var(--cream-dark);
+  padding: 24px 0;
+  border-top: 1px solid rgba(185, 138, 74, 0.2);
+  border-bottom: 1px solid rgba(185, 138, 74, 0.2);
+}
+
+/* Mobile: 2x2 Grid */
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 12px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 10px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid rgba(185, 138, 74, 0.15);
+  transition: all 0.3s ease;
+}
+
+.feature:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(90, 15, 31, 0.08);
+}
+
+.feature__icon {
+  color: var(--gold);
+  line-height: 0;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.feature__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.feature__title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--maroon-dark);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.feature__text {
+  max-width: 100%;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #6b5a52;
+}
+
+/* Mobile Large */
+@media (min-width: 480px) {
+  .features {
+    padding: 28px 0;
+  }
+
+  .features__grid {
+    gap: 18px 14px;
+  }
+
+  .feature {
+    padding: 18px 12px;
+  }
+
+  .feature__icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .feature__title {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .feature__text {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}
+
+/* Tablet / Desktop: one row with dividers */
+@media (min-width: 768px) {
+  .features {
+    padding: 36px 0;
+  }
+
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .feature {
+    padding: 4px 16px;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .feature:first-child {
+    border-left: none;
+  }
+
+  .feature:last-child {
+    border-right: none;
+  }
+
+  .feature + .feature {
+    border-left: 1px solid rgba(185, 138, 74, 0.35);
+  }
+
+  .feature:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .feature__icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .feature__icon {
+    margin-bottom: 12px;
+  }
+
+  .feature__title {
+    font-size: 11px;
+  }
+
+  .feature__text {
+    font-size: 12px;
+    max-width: 190px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .features {
+    padding: 40px 0;
+  }
+
+  .feature {
+    padding: 4px 28px;
+  }
+
+  .feature__icon svg {
+    width: 38px;
+    height: 38px;
+  }
+}
+
